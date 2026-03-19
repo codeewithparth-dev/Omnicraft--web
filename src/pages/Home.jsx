@@ -255,7 +255,8 @@ export default function Home() {
                         <span className="font-serif" style={{
                             color: 'var(--accent)',
                             fontStyle: 'italic',
-                            textTransform: 'lowercase',
+                            textTransform: 'lowercase',                                           
+
                             fontSize: 'clamp(2.1rem, 11vw, 5.5rem)',
                             lineHeight: 0.9,
                         }}>
