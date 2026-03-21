@@ -3,8 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 const teamMembers = [
   {
     id: 1,
-    name: 'Alex Rivera',
-    role: 'Creative Director',
+    name: 'Parth Kishan',
+    role: 'Frontend & UI/UX Designer' +'Founder',
     bio: 'Shapes brands that move people. 10+ years at the intersection of art and strategy. Alex believes every brand has a story worth telling — his job is to make sure the world listens.',
     portfolio: '#',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&q=80&fm=webp&fit=crop',

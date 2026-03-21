@@ -19,6 +19,7 @@ import { HelmetProvider } from 'react-helmet-async';
 const Home = lazy(() => import('./pages/Home.jsx'));
 const Work = lazy(() => import('./pages/Work.jsx'));
 const About = lazy(() => import('./pages/About.jsx'));
+const Story = lazy(() => import('./pages/Story.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound.jsx'));
 
 import CustomCursor from './components/CustomCursor.jsx';
@@ -53,6 +54,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/work" element={<Work />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/story" element={<Story />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

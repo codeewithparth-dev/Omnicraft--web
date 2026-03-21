@@ -82,6 +82,35 @@ export default function About() {
                     <p style={{ color: 'var(--text-muted)', fontSize: 'clamp(1rem, 4vw, 1.25rem)', lineHeight: 1.7, fontWeight: 400 }}>
                         We believe the best digital experiences don't just look good — they feel inevitable. Omnicraft exists to close the gap between what brands imagine and what users actually experience. Our vision is a world where craft and code are inseparable, where every pixel serves a purpose, and where the work we do outlasts the trends that inspired it.
                     </p>
+                    
+                    <Link 
+                        to="/story"
+                        style={{
+                            display: 'inline-block',
+                            marginTop: '2.5rem',
+                            padding: '0.75rem 2rem',
+                            border: '1.5px solid #e85c20',
+                            borderRadius: '50px',
+                            color: '#e85c20',
+                            fontSize: '1rem',
+                            fontWeight: 600,
+                            textDecoration: 'none',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.05em',
+                            transition: 'all 0.3s ease',
+                            textAlign: 'center'
+                        }}
+                        onMouseEnter={(e) => {
+                            e.target.style.background = 'linear-gradient(135deg, #e85c20, #f5a623)';
+                            e.target.style.color = '#ffffff';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.target.style.background = 'transparent';
+                            e.target.style.color = '#e85c20';
+                        }}
+                    >
+                        Discover How We Got Here →
+                    </Link>
                 </div>
             </section>
 
