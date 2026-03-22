@@ -1,8 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import SEO from '../components/SEO.jsx';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Footer from '../components/Footer.jsx';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,6 +36,18 @@ const skillGroups = [
 
 export default function Work() {
     const sectionRef = useRef(null);
+    const [isLight, setIsLight] = useState(
+        () => document.documentElement.classList.contains('light-theme')
+    );
+
+    // Watch for theme changes
+    useEffect(() => {
+        const observer = new MutationObserver(() => {
+            setIsLight(document.documentElement.classList.contains('light-theme'));
+        });
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        return () => observer.disconnect();
+    }, []);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -89,8 +102,8 @@ export default function Work() {
                                         <img alt={`Case study preview for ${project.title}`} loading="lazy" width="400" height="500" style={{ width: '100%', height: '100%', objectFit: 'cover' }} src={project.img} draggable="false" />
                                         
                                         {/* Hover Overlay Pill */}
-                                        <div className="hover-pill-overlay" style={{ position: 'absolute', inset: 0, background: 'rgba(8,6,6,0.5)', opacity: 0, transition: 'opacity 0.3s ease', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', backdropFilter: 'blur(4px)' }}>
-                                            <Link to="/about" style={{ pointerEvents: 'auto', background: 'var(--accent)', color: '#fff', textTransform: 'uppercase', padding: '12px 24px', borderRadius: '9999px', fontSize: '11px', fontWeight: 800, textDecoration: 'none', letterSpacing: '0.05em', boxShadow: '0 10px 20px -5px var(--accent-translucent)' }}>
+                                        <div className="hover-pill-overlay" style={{ position: 'absolute', inset: 0, background: isLight ? 'rgba(244,140,37,0.3)' : 'rgba(8,6,6,0.5)', opacity: 0, transition: 'opacity 0.3s ease', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', backdropFilter: 'blur(4px)' }}>
+                                            <Link to="/about" style={{ pointerEvents: 'auto', background: isLight ? '#F48C25' : 'var(--accent)', color: isLight ? '#0a0a0a' : '#fff', textTransform: 'uppercase', padding: '12px 24px', borderRadius: '9999px', fontSize: '11px', fontWeight: 800, textDecoration: 'none', letterSpacing: '0.05em', boxShadow: isLight ? '0 10px 20px -5px rgba(244,140,37,0.3)' : '0 10px 20px -5px var(--accent-translucent)' }}>
                                                 View Project &rarr;
                                             </Link>
                                         </div>
@@ -110,6 +123,8 @@ export default function Work() {
                     </div>
                 ))}
             </div>
+
+            <Footer />
 
             <style>{`
                 .project-card-hover:hover .hover-pill-overlay {

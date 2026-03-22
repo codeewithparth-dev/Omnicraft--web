@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SEO from '../components/SEO.jsx';
 import MarqueeTicker from '../components/MarqueeTicker.jsx';
+import Footer from '../components/Footer.jsx';
 
 function HeroFireBg() {
     const canvasRef = useRef(null);
@@ -360,6 +361,7 @@ export default function Home() {
                 </div>
             </section>
 
+            <Footer />
 
         </div>
     );

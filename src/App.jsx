@@ -46,8 +46,8 @@ function App() {
         <div className="bg-grain"></div>
         <Navbar onOpenContact={() => setIsContactOpen(true)} />
         <BottomNav />
-        {/* 100px padding bottom prevents bottom nav from hiding content on mobile, except on About where footer is inside */}
-        <main ref={mainRef} className="relative w-full" style={{ paddingBottom: location.pathname === '/about' ? '0px' : '100px' }}>
+        {/* 100px padding bottom prevents bottom nav from hiding content on mobile */}
+        <main ref={mainRef} className="relative w-full" style={{ paddingBottom: '100px' }}>
           <PageTransition>
             <Suspense fallback={<div style={{ minHeight: '100vh', background: 'var(--bg)' }}></div>}>
               <Routes>
@@ -60,7 +60,7 @@ function App() {
             </Suspense>
           </PageTransition>
         </main>
-        {location.pathname !== '/about' && <Footer />}
+        <Footer />
         <ContactPopup isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
         <BackToTop />
       </SmoothScroll>
