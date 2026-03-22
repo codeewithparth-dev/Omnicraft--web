@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
+import Footer from '../components/Footer.jsx';
 
 export default function Story() {
     const mainRef = useRef(null);
@@ -644,7 +645,7 @@ export default function Story() {
 
             {/* SECTION 6 — CTA */}
             <section style={{
-                padding: '4rem 2rem 8rem',
+                padding: '4rem 2rem 2rem',
                 background: 'radial-gradient(circle at top left, rgba(232,92,32,0.15), transparent 50%), radial-gradient(circle at bottom right, rgba(245,166,35,0.15), transparent 50%)'
             }}>
                 <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -744,26 +745,10 @@ export default function Story() {
                             </Link>
                         </div>
                     </motion.div>
-
-                    <div style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        marginTop: '3rem',
-                        padding: '2rem',
-                        borderTop: '1px solid rgba(255,255,255,0.06)',
-                        fontSize: '10px',
-                        letterSpacing: '0.3em',
-                        color: 'rgba(255,255,255,0.5)',
-                        textTransform: 'uppercase',
-                        fontWeight: 700
-                    }}>
-                        <span>OMNICRAFT · ISSUE 001</span>
-                        <span style={{ width: '4px', height: '4px', background: 'rgba(255,255,255,0.3)', borderRadius: '50%' }}></span>
-                        <span>KARACHI, PAKISTAN · 2024</span>
-                    </div>
                 </div>
             </section>
+
+            <Footer />
 
         </div>
     );

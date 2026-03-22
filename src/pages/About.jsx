@@ -156,7 +156,6 @@ export default function About() {
                 </div>
             </section>
 
-            {/* BLOCK 5: FOOTER / LOGO CLOSER */}
             <Footer />
 
             <style>{`

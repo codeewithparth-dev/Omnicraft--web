@@ -6,7 +6,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Components
 import Navbar from './components/Navbar.jsx';
 import BottomNav from './components/BottomNav.jsx';
-import Footer from './components/Footer.jsx';
 import SmoothScroll from './components/SmoothScroll.jsx';
 import ContactPopup from './components/ContactPopup.jsx';
 import ScrollProgress from './components/ScrollProgress.jsx';
@@ -47,7 +46,7 @@ function App() {
         <Navbar onOpenContact={() => setIsContactOpen(true)} />
         <BottomNav />
         {/* 100px padding bottom prevents bottom nav from hiding content on mobile */}
-        <main ref={mainRef} className="relative w-full" style={{ paddingBottom: '100px' }}>
+        <main ref={mainRef} className="relative w-full" style={{ paddingBottom: '0px' }}>
           <PageTransition>
             <Suspense fallback={<div style={{ minHeight: '100vh', background: 'var(--bg)' }}></div>}>
               <Routes>
@@ -60,7 +59,6 @@ function App() {
             </Suspense>
           </PageTransition>
         </main>
-        <Footer />
         <ContactPopup isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
         <BackToTop />
       </SmoothScroll>
