@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
   return (
     <footer style={{
-      background: '#0a0a0a',
-      borderTop: '1px solid rgba(255,255,255,0.06)',
-      padding: '5rem 2rem 120px',
+      background: 'var(--bg)',
+      borderTop: '1px solid var(--border)',
+      padding: '5rem 2rem 10px',
       marginBottom: '0',
       textAlign: 'center',
       position: 'relative',
@@ -45,7 +45,7 @@ export default function Footer() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'flex-end',
-          gap: '16px',
+          gap: '8px',
           marginBottom: '1.5rem',
           position: 'relative',
         }}>
@@ -69,8 +69,8 @@ export default function Footer() {
             src="/logo.png"
             alt="Omnicraft"
             style={{
-              width: '120px',
-              height: '120px',
+              width: '110px',
+              height: '110px',
               objectFit: 'contain',
             }}
           />
@@ -92,7 +92,7 @@ export default function Footer() {
         </div>
 
         <h2 style={{
-          color: '#ffffff', fontSize: '2rem', fontWeight: 700,
+          color: 'var(--text)', fontSize: '2rem', fontWeight: 700,
           letterSpacing: '0.12em', marginBottom: '0.5rem',
         }}>OMNICRAFT</h2>
 
@@ -116,10 +116,10 @@ export default function Footer() {
               target="_blank" rel="noopener noreferrer"
               style={{
                 width: '46px', height: '46px', borderRadius: '50%',
-                background: 'rgba(255,255,255,0.06)',
-                border: '1px solid rgba(255,255,255,0.1)',
+                background: 'var(--glass-bg)',
+                border: '1px solid var(--border)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: 'rgba(255,255,255,0.65)', fontSize: '13px',
+                color: 'var(--text-muted)', fontSize: '13px',
                 fontWeight: 700, textDecoration: 'none',
                 transition: 'all 0.3s ease',
               }}
@@ -130,9 +130,9 @@ export default function Footer() {
                 e.currentTarget.style.transform = 'translateY(-2px)'
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.06)'
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
-                e.currentTarget.style.color = 'rgba(255,255,255,0.65)'
+                e.currentTarget.style.background = 'var(--glass-bg)'
+                e.currentTarget.style.borderColor = 'var(--border)'
+                e.currentTarget.style.color = 'var(--text-muted)'
                 e.currentTarget.style.transform = 'translateY(0)'
               }}
             >{s.label}</a>
@@ -140,15 +140,18 @@ export default function Footer() {
         </div>
 
         <div style={{
-          borderTop: '1px solid rgba(255,255,255,0.06)',
+          borderTop: '1px solid var(--border)',
           paddingTop: '1.5rem',
           display: 'flex', justifyContent: 'space-between',
           alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem',
         }}>
-          <span style={{ fontSize: '11px', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.28)' }}>
+          <span style={{ fontSize: '11px', letterSpacing: '0.18em', color: 'var(--text-muted)' }}>
+            EMAIL · INSTAGRAM
+          </span>
+          <span style={{ fontSize: '11px', letterSpacing: '0.18em', color: 'var(--text-muted)' }}>
             OMNICRAFT STUDIO © 2026
           </span>
-          <span style={{ fontSize: '11px', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.28)' }}>
+          <span style={{ fontSize: '11px', letterSpacing: '0.18em', color: 'var(--text-muted)' }}>
             ALL RIGHTS RESERVED
           </span>
         </div>

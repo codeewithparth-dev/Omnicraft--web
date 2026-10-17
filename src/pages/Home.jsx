@@ -319,7 +319,7 @@ export default function Home() {
             </section>
 
             {/* ── WORK PREVIEW ── */}
-            <section style={{ padding: '160px 24px' }} id="work">
+            <section style={{ padding: '80px 24px 160px' }} id="work">
                 <div style={{ maxWidth: 1280, margin: '0 auto' }}>
                     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 96, gap: 32 }}>
                         <div style={{ maxWidth: 640 }}>

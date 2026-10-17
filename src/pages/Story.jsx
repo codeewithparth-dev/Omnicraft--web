@@ -3,6 +3,41 @@ import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import Footer from '../components/Footer.jsx';
 
+// Add responsive styles for polaroid cards
+const addPolaroidStyles = () => {
+    const style = document.createElement('style');
+    style.textContent = `
+        @media (max-width: 1024px) {
+            .polaroid-container {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 20px !important;
+            }
+            .polaroid-card {
+                width: 150px !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .polaroid-container {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 16px !important;
+            }
+            .polaroid-card {
+                width: 100% !important;
+                transform: none !important;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+};
+
+// Call this function once when component mounts
+if (typeof window !== 'undefined') {
+    addPolaroidStyles();
+}
+
 export default function Story() {
     const mainRef = useRef(null);
     const sectionsRef = useRef([]);
@@ -41,7 +76,7 @@ export default function Story() {
                 justifyContent: 'center',
                 alignItems: 'center',
                 padding: '100px 2rem 80px',
-                background: '#0a0a0a',
+                background: 'var(--bg)',
                 overflow: 'hidden'
             }}>
                 <div style={{
@@ -62,7 +97,7 @@ export default function Story() {
                     top: '2rem',
                     right: '2rem',
                     fontSize: '11px',
-                    color: 'rgba(255,255,255,0.5)',
+                    color: 'var(--text-muted)',
                     textTransform: 'uppercase',
                     fontWeight: 600
                 }}>
@@ -79,7 +114,7 @@ export default function Story() {
                         <h1 style={{
                             fontSize: '18vw',
                             fontWeight: 900,
-                            color: '#ffffff',
+                            color: 'var(--text)',
                             margin: '0 0 0.5rem 0',
                             textAlign: 'left',
                             lineHeight: 0.9,
@@ -127,10 +162,10 @@ export default function Story() {
                         gap: '2rem',
                         marginBottom: '4rem',
                         fontSize: 'clamp(1rem, 3vw, 1.2rem)',
-                        color: 'rgba(255,255,255,0.5)',
+                        color: 'var(--text-muted)',
                         fontWeight: 300
                     }}>
-                        <div style={{ textAlign: 'left' }}>Five people. One obsession.</div>
+                        <div style={{ textAlign: 'left' }}>Four people. One obsession.</div>
                         <div style={{ textAlign: 'right' }}>Karachi, Pakistan · 2024</div>
                     </div>
 
@@ -148,7 +183,7 @@ export default function Story() {
                             textAlign: 'center'
                         }}
                     >
-                        We didn't start an agency. We started an argument against mediocrity.
+                        No funding. No office. No laptops. Just two people who refused to call it impossible.
                     </motion.blockquote>
 
                     <motion.div
@@ -176,7 +211,7 @@ export default function Story() {
                         }}></div>
                         <span style={{
                             fontSize: '9px',
-                            color: 'rgba(255,255,255,0.4)',
+                            color: 'var(--text-muted)',
                             textTransform: 'uppercase',
                             letterSpacing: '0.12em',
                             fontWeight: 600
@@ -223,7 +258,7 @@ export default function Story() {
                 <h2 style={{
                     fontSize: '6vw',
                     fontWeight: 900,
-                    color: '#ffffff',
+                    color: 'var(--text)',
                     margin: '0 0 0 0',
                     position: 'relative',
                     zIndex: 1,
@@ -262,7 +297,7 @@ export default function Story() {
                                     fontSize: '11px',
                                     textTransform: 'uppercase',
                                     letterSpacing: '0.2em',
-                                    color: 'rgba(255,255,255,0.5)',
+                                    color: 'var(--text-muted)',
                                     fontWeight: 600
                                 }}>MONTHS AGO</span>
                             </div>
@@ -270,14 +305,14 @@ export default function Story() {
                                 <div style={{
                                     fontSize: '15vw',
                                     fontWeight: 900,
-                                    color: '#ffffff',
+                                    color: 'var(--text)',
                                     lineHeight: 0.9
-                                }}>5</div>
+                                }}>4</div>
                                 <span style={{
                                     fontSize: '11px',
                                     textTransform: 'uppercase',
                                     letterSpacing: '0.2em',
-                                    color: 'rgba(255,255,255,0.5)',
+                                    color: 'var(--text-muted)',
                                     fontWeight: 600
                                 }}>FOUNDERS</span>
                             </div>
@@ -292,7 +327,7 @@ export default function Story() {
                                 columnCount: '2',
                                 columnGap: '2rem',
                                 fontSize: 'clamp(0.9rem, 3vw, 1.1rem)',
-                                color: 'rgba(255,255,255,0.5)',
+                                color: 'var(--text-muted)',
                                 lineHeight: 1.8,
                                 fontWeight: 300
                             }}
@@ -306,7 +341,7 @@ export default function Story() {
                                     fontWeight: 900,
                                     marginRight: '0.1em'
                                 }}>O</span>
-                                mnicraft was born from a simple frustration. Agencies were treating brands like tickets in a queue. Fast. Forgettable. Gone the next week. Parth and Pratham refused that. They wanted a studio where every pixel, every frame, every word was placed with intention — not pressure. So they built Omnicraft. And they built it to matter.
+                                Parth had one idea that kept him up at night. Not a small one. An agency where a client walks in needing anything — a brand, a website, a campaign, a film — and never has to look elsewhere. Every niche. One roof. One team. One standard. Everyone said pick a lane. We said no. Not out of arrogance. Out of obsession. The world has enough agencies that do one thing adequately. We wanted to build the one that does everything exceptionally. That idea was too dangerous to let go. So we didn't.
                             </p>
                         </motion.div>
                     </div>
@@ -349,7 +384,7 @@ export default function Story() {
                 <h2 style={{
                     fontSize: '6vw',
                     fontWeight: 900,
-                    color: '#ffffff',
+                    color: 'var(--text)',
                     margin: '0 0 0 0',
                     position: 'relative',
                     zIndex: 1,
@@ -362,24 +397,24 @@ export default function Story() {
             {/* SECTION 3 — TIMELINE */}
             <section style={{ padding: '0 2rem 6rem' }}>
                 <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    {[{ date: 'OCT 2024', title: 'The Call That Started It All', desc: 'Late night. Two founders. One shared frustration.' },
-                      { date: 'NOV 2024', title: 'The Team Comes Together', desc: 'Five different strengths. One shared obsession.' },
-                      { date: 'DEC 2024', title: 'Omnicraft Goes Live', desc: 'Full-spectrum creative force. Built to be unforgettable.' },
-                      { date: '2025 →', title: 'Your Vision. Our Craft.', desc: 'Three months in. Everything to prove. Just getting started.' }]
+                    {[{ date: '2024', title: 'The Vision', desc: 'One idea. Too big to ignore. Too real to forget.' },
+                      { date: 'EARLY 2025', title: 'No Tools. Still Building.', desc: 'No laptops. No systems. The dream outlasted every obstacle.' },
+                      { date: 'FEB 2025', title: 'The Crew Said Yes', desc: 'Yazdan and Jameel heard it once. They didn\'t need to hear it twice.' },
+                      { date: 'NOW →', title: 'Everything From Scratch', desc: 'Bought our own gear. Built our own site. Every piece placed by hand.' }]
                      .map((item, index) => (
                         <motion.div
                             key={index}
                             ref={addToRefs}
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.9, ease: 'easeOut', delay: index * 0.1 }}
+                            transition={{ duration: 0.1, ease: 'easeOut', delay: index * 0.1 }}
                             style={{
                                 display: 'grid',
                                 gridTemplateColumns: '150px 1fr',
                                 gap: '2rem',
                                 alignItems: 'center',
                                 padding: '2rem 0',
-                                borderBottom: '1px solid rgba(255,255,255,0.05)',
+                                borderBottom: '1px solid var(--border)',
                                 cursor: 'pointer'
                             }}
                             whileHover={{
@@ -397,11 +432,11 @@ export default function Story() {
                                 <h3 style={{
                                     fontSize: '1.5rem',
                                     fontWeight: 800,
-                                    color: '#ffffff',
+                                    color: 'var(--text)',
                                     margin: '0 0 0.5rem 0'
                                 }}>{item.title}</h3>
                                 <p style={{
-                                    color: 'rgba(255,255,255,0.5)',
+                                    color: 'var(--text-muted)',
                                     fontSize: '1rem',
                                     lineHeight: 1.6,
                                     margin: 0
@@ -448,7 +483,7 @@ export default function Story() {
                 <h2 style={{
                     fontSize: '6vw',
                     fontWeight: 900,
-                    color: '#ffffff',
+                    color: 'var(--text)',
                     margin: '0 0 0 0',
                     position: 'relative',
                     zIndex: 1,
@@ -461,77 +496,106 @@ export default function Story() {
             {/* SECTION 4 — TEAM */}
             <section style={{ padding: '0 2rem 6rem' }}>
                 <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-                        gap: '2rem'
+                    <p style={{
+                        fontSize: 'clamp(0.9rem, 3vw, 1.1rem)',
+                        color: 'var(--text-muted)',
+                        lineHeight: 1.8,
+                        fontWeight: 300,
+                        margin: '0 0 2rem 0',
+                        textAlign: 'center'
                     }}>
-                        {[{ name: 'Parth', role: 'AI Dev · UI Designer', initials: 'P', color: '#e85c20' },
-                          { name: 'Pratham', role: 'Co-founder · Motion Editor', initials: 'Pr', color: '#f5a623' },
-                          { name: 'Jameel', role: 'Web Dev · Designer', initials: 'J', color: '#c94b15' },
-                          { name: 'Yazdan', role: 'Lead Gen · Social Media', initials: 'Y', color: '#d9751a' },
-                          { name: 'Fardeen', role: 'Designer', initials: 'F', color: '#e8922a' }]
+                        Four people who bet on an idea before it had a name.
+                    </p>
+                    <div className="polaroid-container" style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'flex-end',
+                        gap: '28px'
+                    }}>
+                        {[{ name: 'Parth', role: 'AI Dev · UI Designer', initials: 'P', color: '#e85c20', src: '/images/team/parth.jpg' },
+                          { name: 'Pratham', role: 'Co-Founder · Motion Editor', initials: 'Pr', color: '#f5a623', src: '/images/team/pratham.jpg' },
+                          { name: 'Jameel', role: 'Web Dev · Designer', initials: 'J', color: '#c94b15', src: '/images/team/jameel.jpg' },
+                          { name: 'Yazdan', role: 'Lead Gen · Social Media', initials: 'Y', color: '#d9751a', src: '/images/team/yazdan.jpg' },
+                          { name: 'Fardeen', role: 'Designer', initials: 'F', color: '#e8922a', src: '/images/team/fardeen.jpg' }]
                          .map((member, index) => (
                             <motion.div
                                 key={index}
                                 ref={addToRefs}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.9, ease: 'easeOut', delay: index * 0.08 }}
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.1 }}
                                 style={{
-                                    aspectRatio: '3/4',
-                                    background: 'linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
-                                    border: '1px solid rgba(255,255,255,0.08)',
-                                    borderRadius: '16px',
-                                    padding: '2rem',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between',
-                                    cursor: 'pointer'
+                                    width: '165px',
+                                    background: '#fff',
+                                    padding: '10px 10px 28px',
+                                    boxShadow: '2px 4px 12px rgba(0,0,0,0.12)',
+                                    transform: index === 0 ? 'rotate(-1deg)' : 
+                                               index === 1 ? 'rotate(1.5deg)' : 
+                                               index === 2 ? 'rotate(-1deg)' : 
+                                               index === 3 ? 'rotate(2.5deg)' : 
+                                               'rotate(-1.5deg)',
+                                    transition: 'all 0.1s ease-out',
+                                    zIndex: 4
                                 }}
                                 whileHover={{ 
-                                    scale: 1.02,
-                                    borderColor: member.color
+                                    rotate: 5,
+                                    scale: 1.04,
+                                    zIndex: 10,
+                                    boxShadow: '4px 8px 20px rgba(0,0,0,0.2)'
                                 }}
                             >
                                 <div style={{
-                                    fontSize: '10px',
-                                    letterSpacing: '0.3em',
-                                    color: 'rgba(255,255,255,0.5)',
-                                    textTransform: 'uppercase',
-                                    fontWeight: 700
-                                }}>NO. {index + 1}</div>
-                                
+                                    width: '100%',
+                                    aspectRatio: '1/1',
+                                    position: 'relative',
+                                    overflow: 'hidden'
+                                }}>
+                                    <img
+                                        src={member.src}
+                                        alt={member.name}
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'cover',
+                                            objectPosition: 'center top'
+                                        }}
+                                        onError={(e) => {
+                                            e.target.style.display = 'none';
+                                            const fallback = document.createElement('div');
+                                            fallback.style.position = 'absolute';
+                                            fallback.style.top = '0';
+                                            fallback.style.left = '0';
+                                            fallback.style.width = '100%';
+                                            fallback.style.height = '100%';
+                                            fallback.style.background = '#0a0a0a';
+                                            fallback.style.display = 'flex';
+                                            fallback.style.alignItems = 'center';
+                                            fallback.style.justifyContent = 'center';
+                                            fallback.style.fontSize = 'clamp(2.5rem, 8vw, 4rem)';
+                                            fallback.style.fontWeight = '900';
+                                            fallback.style.color = member.color;
+                                            fallback.textContent = member.initials;
+                                            e.target.parentNode.appendChild(fallback);
+                                        }}
+                                    />
+                                </div>
                                 <div style={{
-                                    fontSize: '5rem',
-                                    fontWeight: 900,
-                                    color: member.color,
-                                    lineHeight: 0.9
-                                }}>{member.initials}</div>
-                                
-                                <div style={{
-                                    width: '40px',
-                                    height: '2px',
-                                    background: '#e85c20',
-                                    margin: '1rem 0'
-                                }}></div>
-                                
-                                <div>
+                                    marginTop: '12px',
+                                    textAlign: 'center'
+                                }}>
                                     <div style={{
-                                        fontSize: '1.1rem',
-                                        fontWeight: 700,
-                                        color: '#ffffff',
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '-0.02em',
-                                        margin: '0 0 0.5rem 0'
+                                        fontSize: '1rem',
+                                        fontWeight: 800,
+                                        fontStyle: 'italic',
+                                        color: '#0a0a0a',
+                                        margin: '0 0 4px 0'
                                     }}>{member.name}</div>
                                     <div style={{
-                                        fontSize: '0.8rem',
-                                        color: 'rgba(255,255,255,0.5)',
+                                        fontSize: '9px',
                                         textTransform: 'uppercase',
-                                        letterSpacing: '0.05em',
-                                        fontWeight: 600
+                                        letterSpacing: '0.1em',
+                                        color: '#aaa',
+                                        margin: 0
                                     }}>{member.role}</div>
                                 </div>
                             </motion.div>
@@ -564,7 +628,7 @@ export default function Story() {
                         style={{
                             fontSize: 'clamp(2rem, 5vw, 4rem)',
                             fontWeight: 900,
-                            color: '#ffffff',
+                            color: 'var(--text)',
                             lineHeight: 1.2,
                             margin: '0 auto',
                             maxWidth: '900px',
@@ -573,7 +637,7 @@ export default function Story() {
                             zIndex: 1
                         }}
                     >
-                        Your vision deserves a team that loses sleep over it.
+                        We're building this from Karachi with no shortcuts and nothing to hide behind. Just five people who want to show the world what this city is capable of.
                     </motion.blockquote>
                     
                     <div style={{
@@ -587,7 +651,7 @@ export default function Story() {
                     <div style={{
                         fontSize: '10px',
                         letterSpacing: '0.3em',
-                        color: 'rgba(255,255,255,0.5)',
+                        color: 'var(--text-muted)',
                         textTransform: 'uppercase',
                         fontWeight: 700,
                         textAlign: 'center'
@@ -633,7 +697,7 @@ export default function Story() {
                 <h2 style={{
                     fontSize: '6vw',
                     fontWeight: 900,
-                    color: '#ffffff',
+                    color: 'var(--text)',
                     margin: '0 0 0 0',
                     position: 'relative',
                     zIndex: 1,
@@ -668,7 +732,7 @@ export default function Story() {
                         <h2 style={{
                             fontSize: 'clamp(2.5rem, 8vw, 5rem)',
                             fontWeight: 900,
-                            color: '#ffffff',
+                            color: 'var(--text)',
                             margin: '0 0 1.5rem 0',
                             lineHeight: 0.95
                         }}>
@@ -681,7 +745,7 @@ export default function Story() {
                         </h2>
 
                         <p style={{
-                            color: 'rgba(255,255,255,0.5)',
+                            color: 'var(--text-muted)',
                             fontSize: 'clamp(0.9rem, 3vw, 1.1rem)',
                             lineHeight: 1.8,
                             fontWeight: 300,
@@ -690,7 +754,7 @@ export default function Story() {
                             textAlign: 'center',
                             display: 'block'
                         }}>
-                            You have a vision. We have the craft to bring it to life. Let's build something that matters together.
+                            You don't need five agencies. You need one that has everything. That's what we built Omnicraft to be — and we're just getting started.
                         </p>
 
                         <div style={{

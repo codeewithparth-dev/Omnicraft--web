@@ -46,7 +46,7 @@ function App() {
         <Navbar onOpenContact={() => setIsContactOpen(true)} />
         <BottomNav />
         {/* 100px padding bottom prevents bottom nav from hiding content on mobile */}
-        <main ref={mainRef} className="relative w-full" style={{ paddingBottom: '0px' }}>
+        <main ref={mainRef} className="relative w-full" style={{ paddingBottom: '100px' }}>
           <PageTransition>
             <Suspense fallback={<div style={{ minHeight: '100vh', background: 'var(--bg)' }}></div>}>
               <Routes>
